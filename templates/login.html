@@ -1,0 +1,13 @@
+{% extends "ver1/base.html" %}
+{% block content %}
+    {% if error %}
+        <h1>BAD LOGIN OR PASS</h1>
+    {% endif %}
+    <form method="POST" action="/login/">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ next }}">
+        <input type="text" name="username">
+        <input type="password" name="password">
+        <button type="submit">LOGIN</button>
+    </form>
+{% endblock %}

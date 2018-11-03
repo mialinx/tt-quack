@@ -1,0 +1,23 @@
+version: "2.1"
+services:
+  db:
+    image: postgres:10
+    restart: always
+    volumes: [ '.db_data:/var/lib/postgresql/data' ]
+    environment:
+      POSTGRES_DB: dev_db
+      POSTGRES_USER: dev_user
+      POSTGRES_PASSWORD: dev_pass
+  webapp:
+    depends_on: [ db ]
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: askme
+    volumes: [ '.:/app' ]
+    ports: [ '8000:8000' ]
+    environment:
+      DB_NAME: dev_db
+      DB_HOST: db
+      DB_USER: dev_user
+      DB_PASSWORD: dev_pass

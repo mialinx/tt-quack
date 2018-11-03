@@ -1,0 +1,6 @@
+PAgintor:<br>
+<ul>
+    {% for p in paginator.page_range %}
+    <a href="?page={{ p }}">Page {{ p }}</a>
+    {% endfor %}
+</ul>

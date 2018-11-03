@@ -1,0 +1,17 @@
+{% extends "ver1/base.html" %}
+
+{% block content %}
+    
+    <form method="POST" action="">
+        {% csrf_token %}
+        <div class="form-section">
+            <label>{{ form.password.label }}</label>
+            {{ form.password }}
+            {% for e in form.password.errors %}
+                <h3>{{ e }}</h3>
+            {% endfor %}
+        </div>
+        <button> REGISTER </button>
+    </form>
+
+{% endblock %}

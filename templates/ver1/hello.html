@@ -1,0 +1,17 @@
+{% extends "ver1/base.html" %}
+
+{% block content %}
+
+    {% for p in posts %}
+        <div class="js-question" data-qid="{{ p.id }}">
+            <h2>{{ p.title|upper }}</h2>
+            <button class="js-like"><big>+</big></button>
+            <span class="js-rating" data-rating="{{ p.rating }}">{{ p.rating }}</span>
+            <button class="js-dislike"><big>-</big></button>
+            <p>{{ p.text }}</h2>
+        </div>
+    {% endfor %}
+    
+    {% include "ver1/paginator.html" %}
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ask ME</title>
+        <link href="{% static "index.css" %}" rel="stylesheet"/>
+        <script src="{% static "jquery.js" %}"></script>
+        <script src="{% static "index.js" %}"></script>
+    </head>
+<body>
+    <h1>Hello2,  {{ user.name  }} ( {{ user.nick }} )</h1>
+    <hr/>
+
+    {% block content %}
+    {% endblock %}
+
+</body>
